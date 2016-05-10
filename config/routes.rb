@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-  get 'welcome' => 'welcome#index'
-  
+root 'welcome#index'
 
   devise_for :users
   resources :profiles, only: :show
