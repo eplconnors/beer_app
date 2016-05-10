@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'paperclip'
 gem 'geocoder'
+gem 'brewery_db'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'

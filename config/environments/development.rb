@@ -13,6 +13,9 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  $brewery_db = BreweryDB::Client.new do |config|
+            config.api_key = ["BREWERY_DB_API_KEY"]
+    end
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

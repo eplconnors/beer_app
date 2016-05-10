@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'beers/index'
+
 root 'welcome#index'
 
   devise_for :users
