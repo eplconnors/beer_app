@@ -46,7 +46,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
-          
+
           <li class="dropdown">
              <% if user_signed_in? %>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
@@ -69,11 +69,12 @@
     </div><!-- /.container-fluid -->
   </nav>
   <% else %>
-<p align="right"><%= link_to "User Sign Up", new_user_registration_path, class: "btn-lg btn-danger" %></p>
-<p align="right"><%= link_to "User Sign In", new_user_session_path, class: "btn-lg btn-info" %></p>
-<br />
-<p align="right"><%= link_to "Business Sign Up", new_business_user_registration_path, class: "btn-lg btn-danger" %></p>
-<p align="right"><%= link_to "Business Sign In", new_business_user_session_path, class: "btn-lg btn-info" %></p>
+  <ul class="nav nav-pills">
+  <li role="presentation" class="active"><%= link_to "sign up", new_user_registration_path %></li>
+  <li role="presentation" class="active"><%= link_to "sign in", new_user_session_path %></li>
+  <li role="presentation" class="active"><%= link_to "business sign up", new_business_user_registration_path %></li>
+  <li role="presentation" class="active"><%= link_to "business sign in", new_business_user_session_path %></li>
+</ul>
 <%end%>
 
   <div class="container">
