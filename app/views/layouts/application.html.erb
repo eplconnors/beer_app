@@ -71,11 +71,27 @@
     </div><!-- /.container-fluid -->
   </nav>
   <% else %>
-<p align="right"><%= link_to "User Sign Up", new_user_registration_path, class: "btn-lg btn-danger" %></p>
-<p align="right"><%= link_to "User Sign In", new_user_session_path, class: "btn-lg btn-info" %></p>
-<br />
-<p align="right"><%= link_to "Business Sign Up", new_business_user_registration_path, class: "btn-lg btn-danger" %></p>
-<p align="right"><%= link_to "Business Sign In", new_business_user_session_path, class: "btn-lg btn-info" %></p>
+  <ul class="nav nav-tabs">
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Sign In <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle"data-toggle="modal" data-target="#aModal"> beer drinker</li>
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#aModal"> beer seller</li>
+    </ul>
+  </li>
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Sign Up <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#myModal"> beer drinker</li>
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#myModal"> beer seller</li>
+    </ul>
+  </li>
+</ul>
+<%= render 'shared/modal' %>
 <%end%>
 
   <div class="container">
