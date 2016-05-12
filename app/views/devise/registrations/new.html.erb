@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -59,5 +60,35 @@
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
+=======
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.text_field :username, placeholder: "username" %>
+  </div><br />
+
+  <div class="field">
+    <%= f.text_field :email, placeholder: "your email address" %>
+  </div><br />
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div><br />
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div><br />
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+>>>>>>> 460751e1bfe5146ca867f8cdf97f0372ad00fdbe
   </div>
 </div>

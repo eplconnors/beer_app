@@ -25,13 +25,8 @@ ActiveRecord::Schema.define(version: 20160512134028) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "username"
-    t.string   "name"
-    t.integer  "birthday"
     t.float    "longitude"
     t.float    "latitude"
-    t.text     "bio"
-    t.integer  "phone_number"
-    t.string   "address"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -50,9 +45,7 @@ ActiveRecord::Schema.define(version: 20160512134028) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
     t.string   "username"
-    t.date     "birthday"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",                          null: false
@@ -61,8 +54,6 @@ ActiveRecord::Schema.define(version: 20160512134028) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "address"
-    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
