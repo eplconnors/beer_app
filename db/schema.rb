@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512134028) do
+ActiveRecord::Schema.define(version: 20160512154224) do
 
   create_table "business_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -25,19 +25,25 @@ ActiveRecord::Schema.define(version: 20160512134028) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "username"
-    t.string   "name"
-    t.integer  "birthday"
     t.float    "longitude"
     t.float    "latitude"
-    t.text     "bio"
-    t.integer  "phone_number"
-    t.string   "address"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
 
   add_index "business_users", ["email"], name: "index_business_users_on_email", unique: true
   add_index "business_users", ["reset_password_token"], name: "index_business_users_on_reset_password_token", unique: true
+
+  create_table "businessprofiles", force: :cascade do |t|
+    t.integer  "business_user_id"
+    t.text     "bio"
+    t.string   "address"
+    t.string   "phone_number"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "businessprofiles", ["business_user_id"], name: "index_businessprofiles_on_business_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,9 +56,7 @@ ActiveRecord::Schema.define(version: 20160512134028) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
     t.string   "username"
-    t.date     "birthday"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",                          null: false
@@ -61,8 +65,6 @@ ActiveRecord::Schema.define(version: 20160512134028) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "address"
-    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
