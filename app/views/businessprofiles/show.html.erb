@@ -1,5 +1,7 @@
 <h1>Business Profile</h1>
-<h3><%= @business_user.name %></h3>
-  <h5><%= @business_user.username %></h5>
-  <h5><%= @business_user.bio %></h5>
-  <h5><%= @business_user.address %></h5>
+ <%= @b_profile.business_user.username %><br />
+ <%= @b_profile.address %><br />
+ <%= @b_profile.bio %><br />
+ <%= @b_profile.phone_number %><br />
+ 
+<%= link_to "Edit Information", edit_businessprofile_path(id: current_business_user.id) %>

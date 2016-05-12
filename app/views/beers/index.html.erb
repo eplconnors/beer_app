@@ -4,7 +4,8 @@
 
 <!-- <#% @beers.each do |info| %> -->
 <!-- <p><#%= info %></p> -->
-<%#end%
+<%#end%>
+
 
 <!-- #place holder -->
         <form method="post" action="www.websitehere.com/folderhere/"
@@ -22,6 +23,10 @@
             <input type="submit" value="Search" id="searchbtn">
 
             <p></p>
-<h4>Today's beer of choice: <%= @beers.name %> <h4>
 
-<div id="search_results">Local TapScout Results:</div>
+        </form>
+    
+    <% @beers.each do |beer| %>
+    <%= beer.name  %><br />
+    <%end%>
+
