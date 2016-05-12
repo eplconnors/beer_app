@@ -6,27 +6,7 @@
 <!-- <p><#%= info %></p> -->
 <%#end%>
 
-
-<!-- #place holder -->
-        <form method="post" action="www.websitehere.com/folderhere/"
-              name="searchform" id="searchform">
-
-            <label for="Search"> Search: </label>
-            <input type="text" id="search" name="myName" placeholder="Search for Beer"
-                   required="required" style="width: 520px" />
-
-            <label for="category" id="category">Category</label>
-            <select>
-                <option value="title" selected="selected">Beer Name</option>
-                <option value="director">Beer Type</option>
-            </select>
-            <input type="submit" value="Search" id="searchbtn">
-
-            <p></p>
-
-        </form>
-    
-    <% @beers.each do |beer| %>
-    <%= beer.name  %><br />
-    <%end%>
-
+<%= form_tag(search_path, method: :get) do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag %>
+<% end %>
