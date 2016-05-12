@@ -3,7 +3,10 @@
 <head>
   <title>BeerApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+
   <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Karla:400,400italic|Raleway" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" %>
   <%= csrf_meta_tags %>
@@ -23,9 +26,6 @@
         </button>
          <%= link_to "Home", root_path, class:"navbar-brand" %>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
@@ -50,26 +50,51 @@
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
           <li class="dropdown">
+             <% if user_signed_in? %>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "edit profile", edit_user_registration_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "sign-out", destroy_user_session_path, method: :delete %></li>
-            </ul>
+          </ul>
+              <% else business_user_signed_in?%>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_business_user.email %> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "edit profile", edit_business_user_registration_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "sign-out", destroy_user_session_path, method: :delete %></li>
+              </ul>
+              <% end %>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
   <% else %>
-<p align="right"><%= link_to "User Sign Up", new_user_registration_path, class: "btn-lg btn-danger" %></p>
-<p align="right"><%= link_to "User Sign In", new_user_session_path, class: "btn-lg btn-info" %></p>
-<br />
-<p align="right"><%= link_to "Business Sign Up", new_business_user_registration_path, class: "btn-lg btn-danger" %></p>
-<p align="right"><%= link_to "Business Sign In", new_business_user_session_path, class: "btn-lg btn-info" %></p>
 
-
+  <ul class="nav nav-tabs">
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Sign In <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle"data-toggle="modal" data-target="#aModal"> beer drinker</li>
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#aModal"> beer seller</li>
+    </ul>
+  </li>
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Sign Up <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#myModal"> beer drinker</li>
+      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#myModal"> beer seller</li>
+    </ul>
+  </li>
+</ul>
+<%= render 'shared/modal' %>
 <%end%>
+
   <div class="container">
 <%= yield %>
   </div>

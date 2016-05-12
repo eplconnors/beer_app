@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'beers/index'
 
+  get 'search' => 'beers#search'
+
   root 'welcome#index'
 
   devise_for :business_users
