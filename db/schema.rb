@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20160512233302) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "beers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "abv"
+    t.string   "beer_type"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "business_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
