@@ -6,3 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+something = Atmosphere.create([{status: 'Casual'}, {status: "Clubbing"}, {status: "Family-Friendly"}])
+
+thing = Attraction.create([{name: "Live Music"}, {name: "Beer Pong Tables/Tournaments"}, {name: "Tinder Hot-Spot"}])

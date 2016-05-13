@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -9,9 +10,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
 
-          <div class="field">
-            <%= f.text_field :name, placeholder: "First Name Last Name", autofocus: true %>
-          </div><br />
+    
 
           <div class="field">
             <%= f.text_field :username, placeholder: "username" %>
