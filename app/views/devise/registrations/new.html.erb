@@ -10,26 +10,12 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
 
-          <div class="field">
-            <%= f.text_field :name, placeholder: "First Name Last Name", autofocus: true %>
-          </div><br />
+    
 
           <div class="field">
             <%= f.text_field :username, placeholder: "username" %>
           </div><br />
 
-          <div class="field">
-            <%= f.label :birthday %> <br />
-            <%=f.text_field :birthday, placeholder: "__/__/____" %>
-          </div><br />
-
-          <div class="field">
-            <%= f.text_field :address, placeholder: "address" %>
-          </div><br />
-
-          <div class="field">
-            <%= f.text_field :bio, placeholder: "bio" %>
-          </div><br />
 
           <div class="field">
             <%= f.text_field :email, placeholder: "your email address" %>
