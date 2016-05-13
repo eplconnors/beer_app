@@ -11,11 +11,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
 
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ roles: [] }, :email, :password, :password_confirmation,
-      :name, :username, :latitude, :longitude, :avatar, :birthday, :bio, :address) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ roles: [] }, :email, :password, :password_confirmation, :username, :latitude, :longitude, :avatar) }
 
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation,
-      :current_password, :name, :username, :latitude, :longitude, :avatar, :birthday, :bio, :address) }
+      :current_password, :username, :latitude, :longitude, :avatar) }
 
 end
 
@@ -27,6 +26,10 @@ def authenticate_any!
     else
         authenticate_business_user!
     end
+end
+
+def after_sign_in_path_for(resource)
+  new_businessprofile_path(current_business_user) #your path
 end
 
 end
