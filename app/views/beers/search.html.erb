@@ -1,6 +1,30 @@
-
-<% @beer.each do |b| %>
-<%= b.name %>
-<%= b.abv %>
-<%= b.description %>
-<% end %>
+<table class="table hover">
+<thead>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      ABV
+    </th>
+    <th>
+      Description
+      <th>
+  </tr>
+</thead>
+<tbody>
+  <% @beer.each do |b| %>
+  <tr>
+    <td>
+    <%= b.name %>
+  </td>
+  <td>
+  <%= b.abv %>
+  </td>
+  <td>
+  <%= b.description %>
+  </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

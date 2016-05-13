@@ -56,7 +56,7 @@ end
  end
 
  def businessprofile_params
-    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address)
+    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id)
     # saves to our database
  end
 end

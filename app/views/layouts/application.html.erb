@@ -71,8 +71,8 @@
       Sign In <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      <li button type="button" class="btn btn-default btn-sm dropdown-toggle"data-toggle="modal" data-target="#aModal"> beer drinker</li>
-      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#aModal"> beer seller</li>
+      li><%= link_to "user", new_user_session_path%></li>
+      li><%= link_to "business", new_business_user_session_path%></li>
     </ul>
   </li>
   <li role="presentation" class="dropdown">
@@ -80,8 +80,8 @@
       Sign Up <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#myModal"> beer drinker</li>
-      <li button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="modal" data-target="#myModal"> beer seller</li>
+      li><%= link_to "user", new_user_registration_path%></li>
+      li><%= link_to "business", new_business_user_registration_path%></li>
     </ul>
   </li>
 </ul>

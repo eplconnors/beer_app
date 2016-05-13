@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512154224) do
+ActiveRecord::Schema.define(version: 20160512233302) do
+
+  create_table "atmospheres", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "attractions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "business_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -41,8 +53,12 @@ ActiveRecord::Schema.define(version: 20160512154224) do
     t.string   "phone_number"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "atmosphere_id"
+    t.integer  "attraction_id"
   end
 
+  add_index "businessprofiles", ["atmosphere_id"], name: "index_businessprofiles_on_atmosphere_id"
+  add_index "businessprofiles", ["attraction_id"], name: "index_businessprofiles_on_attraction_id"
   add_index "businessprofiles", ["business_user_id"], name: "index_businessprofiles_on_business_user_id"
 
   create_table "users", force: :cascade do |t|
