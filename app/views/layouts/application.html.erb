@@ -9,7 +9,11 @@
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Karla:400,400italic|Raleway" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" %>
-  <%= csrf_meta_tags %>
+
+  <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_api_key']%>&callback=initMap"type="text/javascript"></script>
+
+<%= csrf_meta_tags %>
 </head>
 <body>
 

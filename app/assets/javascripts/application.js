@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+var map;
+function initMap() {
+  var product = new google.maps.LatLng(latitude, longitude);
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+    center: businessprofile,
+    zoom: 15,
+    scrollwheel: false,
+  });
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title: title,
+    draggable: true
+  });
+}
+AIzaSyAICEi9lhFUG7qchnjGmn78ekxTWSJDH1Y

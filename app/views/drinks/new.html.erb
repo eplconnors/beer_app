@@ -1,0 +1,14 @@
+<h3>Search for your favorite beer or type of beer:</h3>
+
+<%= form_tag(results_path, method: :get) do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag "Search Inventory" %>
+<% end %>
+
+<h3>Select the drink you are serving at your bar.</h3>
+
+<% @drink.each do |dr| %>
+
+<%= dr.name %>
+    <%= button_to "Select Beer", join_path(drink: dr.id, biz: current_business_user.businessprofile.id) %>
+<%end %>

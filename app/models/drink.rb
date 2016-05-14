@@ -1,3 +1,4 @@
 class Drink < ActiveRecord::Base
-  belongs_to :businessprofile
+  has_many :taps
+  has_many :businessprofiles, through: :taps
 end

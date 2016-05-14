@@ -1,0 +1,38 @@
+<table class="table hover">
+<thead>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      ABV
+    </th>
+    <th>
+      Description
+    </th>
+  
+    <th>
+      Select this Beer
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <% @beer.each do |b| %>
+  <tr>
+    <td>
+    <%= b.name %>
+  </td>
+  <td>
+  <%= b.abv %>
+  </td>
+  <td>
+  <%= b.description %>
+  </td>
+
+  <td>
+    <%= button_to "Select Beer", drinks_path(name: b.name, abv: b.abv, description: b.description) %>
+  </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

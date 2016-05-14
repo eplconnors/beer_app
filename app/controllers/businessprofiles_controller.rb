@@ -3,21 +3,19 @@ class BusinessprofilesController < ApplicationController
   def index
     @business_profiles = Businessprofile.all
   end
-  
+
   def show
-
     @b_profile = Businessprofile.find(params[:id])
+  end
 
-end
-  
     def new
       @b_profile = Businessprofile.new
     end
-    
+
     def edit
       @b_profile = Businessprofile.find(params[:id])
     end
-    
+
     def update
       @b_profile = Businessprofile.find(params[:id])
     respond_to do |format|
@@ -29,7 +27,7 @@ end
       end
     end
   end
-  
+
     def create
     @b_profile = Businessprofile.new(businessprofile_params)
 
@@ -41,7 +39,7 @@ end
       end
     end
   end
-  
+
   def destroy
         @b_profile = Businessprofile.find(params[:id])
       @b_profile.destroy
@@ -49,7 +47,7 @@ end
       format.html { redirect_to businessprofile_url, notice: 'Business Profile information was successfully destroyed.' }
     end
   end
-  
+
  private
  def set_businessprofile
     @b_profile = Businessprofile.find(params[:id])
@@ -60,4 +58,3 @@ end
     # saves to our database
  end
 end
-
