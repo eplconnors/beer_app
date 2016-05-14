@@ -3,13 +3,16 @@
  <%= @b_profile.address %><br />
  <%= @b_profile.bio %><br />
  <%= @b_profile.phone_number %><br />
+ <% @b_profile.taps.each do |tap| %><br />
+  <%= tap.drink.name  %>
+  <% end %>
+
 
 <%= link_to "Edit Information", edit_businessprofile_path(id: current_business_user.id) %>
 
 <div id="map-canvas"></div>
 
 <%= javascript_tag do %>
-  latitude = '<%= j @businessprofile.latitude.to_s %>';
-  longitude = '<%= j @businessprofile.longitude.to_s %>';
-  title = '<%= j @businessprofile.name %>'
+  latitude = '<%= j @b_profile.latitude.to_s %>';
+  longitude = '<%= j @b_profile.longitude.to_s %>';
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512233302) do
+ActiveRecord::Schema.define(version: 20160514174209) do
 
   create_table "atmospheres", force: :cascade do |t|
     t.string   "status"
@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(version: 20160512233302) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "beers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "abv"
-    t.string   "beer_type"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "business_users", force: :cascade do |t|
@@ -64,11 +55,31 @@ ActiveRecord::Schema.define(version: 20160512233302) do
     t.datetime "updated_at",       null: false
     t.integer  "atmosphere_id"
     t.integer  "attraction_id"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "businessprofiles", ["atmosphere_id"], name: "index_businessprofiles_on_atmosphere_id"
   add_index "businessprofiles", ["attraction_id"], name: "index_businessprofiles_on_attraction_id"
   add_index "businessprofiles", ["business_user_id"], name: "index_businessprofiles_on_business_user_id"
+
+  create_table "drinks", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "abv"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "taps", force: :cascade do |t|
+    t.integer  "drink_id"
+    t.integer  "businessprofile_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "taps", ["businessprofile_id"], name: "index_taps_on_businessprofile_id"
+  add_index "taps", ["drink_id"], name: "index_taps_on_drink_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

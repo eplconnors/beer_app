@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :drinks
+  post 'join' => 'drinks#join'
   get 'beers/index'
 
   get 'search' => 'beers#search'
 
+  get 'results' => 'drinks#drinksearch'
   root 'welcome#index'
-  
+
   devise_for :business_users
 
   devise_for :users
