@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160513160838) do
-=======
-ActiveRecord::Schema.define(version: 20160514174209) do
->>>>>>> c6333fec5ec79e4eff2aeb8a0bdd3e6e4c357ef2
+ActiveRecord::Schema.define(version: 20160515174721) do
 
   create_table "atmospheres", force: :cascade do |t|
     t.string   "status"
@@ -27,15 +23,6 @@ ActiveRecord::Schema.define(version: 20160514174209) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "beers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "abv"
-    t.string   "beer_type"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "business_users", force: :cascade do |t|
@@ -54,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160514174209) do
     t.float    "latitude"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "ip_address"
   end
 
   add_index "business_users", ["email"], name: "index_business_users_on_email", unique: true
@@ -70,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160514174209) do
     t.integer  "attraction_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "name"
   end
 
   add_index "businessprofiles", ["atmosphere_id"], name: "index_businessprofiles_on_atmosphere_id"
@@ -78,8 +67,6 @@ ActiveRecord::Schema.define(version: 20160514174209) do
 
   create_table "drinks", force: :cascade do |t|
     t.string   "name"
-<<<<<<< HEAD
-=======
     t.decimal  "abv"
     t.text     "description"
     t.datetime "created_at",  null: false
@@ -88,18 +75,13 @@ ActiveRecord::Schema.define(version: 20160514174209) do
 
   create_table "taps", force: :cascade do |t|
     t.integer  "drink_id"
->>>>>>> c6333fec5ec79e4eff2aeb8a0bdd3e6e4c357ef2
     t.integer  "businessprofile_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-<<<<<<< HEAD
-  add_index "drinks", ["businessprofile_id"], name: "index_drinks_on_businessprofile_id"
-=======
   add_index "taps", ["businessprofile_id"], name: "index_taps_on_businessprofile_id"
   add_index "taps", ["drink_id"], name: "index_taps_on_drink_id"
->>>>>>> c6333fec5ec79e4eff2aeb8a0bdd3e6e4c357ef2
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -121,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160514174209) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "ip_address"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

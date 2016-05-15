@@ -1,7 +1,9 @@
+<h1>Business Profile Feed</h1>
+
 <% @business_profiles.each do |x| %>
-<%= x.business_user.username %><br />
-    <%= x.bio %>
-
+<%= link_to x.name, businessprofile_path(id: 1) %><br />
+    <%= x.bio %></br>
+    <% if user_signed_in? %>
+    Miles from you: <%= x.distance_to(current_user) %> </br>
     <% end %>
-
-  
+<% end %>

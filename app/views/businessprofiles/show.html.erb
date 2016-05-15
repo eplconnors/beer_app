@@ -1,18 +1,25 @@
 <h1>Business Profile</h1>
- <%= @b_profile.business_user.username %><br />
+ <%= @b_profile.name %><br />
  <%= @b_profile.address %><br />
  <%= @b_profile.bio %><br />
  <%= @b_profile.phone_number %><br />
  <% @b_profile.taps.each do |tap| %><br />
   <%= tap.drink.name  %>
   <% end %>
+ 
+ <% if user_signed_in? %>
+  Miles from you: <%= @b_profile.distance_to(current_user)  %>
+  <% end %>
+  
 
-
-<%= link_to "Edit Information", edit_businessprofile_path(id: current_business_user.id) %>
 
 <div id="map-canvas"></div>
 
 <%= javascript_tag do %>
   latitude = '<%= j @b_profile.latitude.to_s %>';
-  longitude = '<%= j @b_profile.longitude.to_s %>';
+ longitude = '<%= j @b_profile.longitude.to_s %>';
+ address = '<%= j @b_profile.address %>';
+ <%= j @b_profile.name %>
+
+
 <% end %>
