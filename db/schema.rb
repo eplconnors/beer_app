@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514174209) do
+ActiveRecord::Schema.define(version: 20160514183702) do
 
   create_table "atmospheres", force: :cascade do |t|
     t.string   "status"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160514174209) do
     t.integer  "attraction_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "name"
   end
 
   add_index "businessprofiles", ["atmosphere_id"], name: "index_businessprofiles_on_atmosphere_id"
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20160514174209) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "ip_address"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
