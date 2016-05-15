@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160514183619) do
-=======
 ActiveRecord::Schema.define(version: 20160515174721) do
->>>>>>> fc9696ce2f5dab4683dce4a69986c16a7f28bcd8
 
   create_table "atmospheres", force: :cascade do |t|
     t.string   "status"
