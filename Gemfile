@@ -14,6 +14,8 @@ gem 'paperclip'
 gem 'geocoder'
 gem 'brewery_db'
 gem 'figaro'
+gem 'google-api-client'
+
 
 group :development, :test do
   gem 'byebug'
