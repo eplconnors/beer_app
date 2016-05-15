@@ -1,14 +1,17 @@
 class BusinessprofilesController < ApplicationController
 
   def index
+    if current_user
+    @business_profiles = Businessprofile.near([current_user.latitude, current_user.longitude], 100)
+  else
     @business_profiles = Businessprofile.all
+  end
 
   end
 
   def show
     @b_profile = Businessprofile.find(params[:id])
-    
-    
+
   end
 
     def new
