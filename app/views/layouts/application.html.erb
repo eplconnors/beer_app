@@ -33,10 +33,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-          <li><%= link_to "User Profile", profile_path(id: current_user.id) %></li>
+            <li><%= link_to "See All Business Profiles", businessprofiles_path %></li>
           <% else business_user_signed_in?%>
-          <li><%= link_to "Your Business Profile", businessprofile_path(id: current_business_user.id) %></li>
-          <li><%= link_to "See All Business Profiles", businessprofiles_path %></li>
+            <li><%= link_to "Your Business Profile", businessprofile_path(id: current_business_user.id) %></li>
+            <li><%= link_to "See All Business Profiles", businessprofiles_path %></li>
            <% end %>
         </ul>
 
@@ -71,8 +71,8 @@
       Sign In <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      li><%= link_to "user", new_user_session_path%></li>
-      li><%= link_to "business", new_business_user_session_path%></li>
+      <li><%= link_to "user", new_user_session_path%></li>
+      <li><%= link_to "business", new_business_user_session_path%></li>
     </ul>
   </li>
   <li role="presentation" class="dropdown">
@@ -80,8 +80,8 @@
       Sign Up <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      li><%= link_to "user", new_user_registration_path%></li>
-      li><%= link_to "business", new_business_user_registration_path%></li>
+      <li><%= link_to "user", new_user_registration_path%></li>
+      <li><%= link_to "business", new_business_user_registration_path%></li>
     </ul>
   </li>
 </ul>

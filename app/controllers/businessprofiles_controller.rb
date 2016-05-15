@@ -2,10 +2,13 @@ class BusinessprofilesController < ApplicationController
 
   def index
     @business_profiles = Businessprofile.all
+
   end
 
   def show
     @b_profile = Businessprofile.find(params[:id])
+    
+    
   end
 
     def new
@@ -54,7 +57,7 @@ class BusinessprofilesController < ApplicationController
  end
 
  def businessprofile_params
-    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id)
+    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id, :name)
     # saves to our database
  end
 end
