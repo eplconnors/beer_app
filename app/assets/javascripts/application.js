@@ -16,9 +16,9 @@
 //= require_tree .
 var map;
 function initMap() {
-  var product = new google.maps.LatLng(latitude, longitude);
+  var b_profile = new google.maps.LatLng(latitude, longitude);
   map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: businessprofile,
+    center: b_profile,
     zoom: 15,
     scrollwheel: false,
   });
