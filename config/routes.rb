@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :drinks
+  
   post 'join' => 'drinks#join'
   get 'beers/index'
 

@@ -12,7 +12,7 @@ class DrinksController < ApplicationController
     @tap = Tap.new(drink_id: drink, businessprofile_id: biz)
     respond_to do |format|
       if @tap.save
-        format.html {redirect_to drinks_path}
+        format.html {redirect_to new_drink_path, notice: "This beer has been added to your profile"}
       else
         render :new
       end
@@ -26,7 +26,7 @@ class DrinksController < ApplicationController
     @beer = Drink.new(name: name, abv: abv, description: description)
     respond_to do |format|
       if @beer.save
-        format.html {redirect_to @beer}
+        format.html {redirect_to new_drink_path}
       else
         render :new
       end

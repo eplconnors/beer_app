@@ -36,7 +36,7 @@
             <li><%= link_to "See All Business Profiles", businessprofiles_path %></li>
           <% else business_user_signed_in?%>
             <li><%= link_to "Your Business Profile", businessprofile_path(id: current_business_user.id) %></li>
-            <li><%= link_to "See All Business Profiles", businessprofiles_path %></li>
+            <li><%= link_to "Add Beers to Profile", new_drink_path %></li>
            <% end %>
         </ul>
 
