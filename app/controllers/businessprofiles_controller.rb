@@ -1,6 +1,7 @@
 class BusinessprofilesController < ApplicationController
 
   def index
+
     if params[:attraction_id] == nil && params[:atmosphere_id] == nil
       @businessprofile = Businessprofile.all
     elsif params[:attraction_id] != nil
@@ -12,6 +13,7 @@ class BusinessprofilesController < ApplicationController
     end
     @attractions = Attraction.all.order(:name).distinct
     @atmospheres = Atmosphere.all.order(:status).distinct
+
 
   end
 

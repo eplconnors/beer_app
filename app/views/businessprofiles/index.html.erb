@@ -26,8 +26,10 @@
 
 <% @businessprofile.each do |x| %>
 <%= link_to x.name, x %><br />
-   <%= x.bio %></br>
-   <% if user_signed_in? %>
-   Miles from you: <%= x.distance_to(current_user) %> </br>
-   <% end %>
+
+    <%= x.bio %></br>
+    <% if user_signed_in? %>
+    Miles from you: <%= x.distance_to(current_user) %> </br>
+    <% end %>
+
 <% end %>
