@@ -1,16 +1,25 @@
 class BusinessprofilesController < ApplicationController
 
   def index
-    if current_user
-    @business_profiles = Businessprofile.near([current_user.latitude, current_user.longitude], 100)
-  else
-    @business_profiles = Businessprofile.all
-  end
+
+    if params[:attraction_id] == nil && params[:atmosphere_id] == nil
+      @businessprofile = Businessprofile.all
+    elsif params[:attraction_id] != nil
+      @businessprofile = Businessprofile.where(attraction_id: params[:attraction_id])
+    elsif params[:atmosphere_id] != nil
+      @businessprofile = Businessprofile.where(atmosphere_id: params[:atmosphere_id])
+    elsif params[:attraction_id] != nil && params[:atmosphere_id] != nil
+      @businessprofile = Businessprofile.where(attraction_id: params[:attraction_id], atmosphere_id: params[:atmosphere_id])
+    end
+    @attractions = Attraction.all.order(:name).distinct
+    @atmospheres = Atmosphere.all.order(:status).distinct
+
 
   end
 
   def show
     @b_profile = Businessprofile.find(params[:id])
+
 
   end
 
