@@ -1,7 +1,35 @@
-<% @business_profiles.each do |x| %>
-<%= x.business_user.username %><br />
-    <%= x.bio %>
+<h1>Business Profile Feed</h1>
 
+<ul class="nav nav-tabs">
+  <li role="presentation"> <%= link_to "All", businessprofiles_path %></li>
+  <li role="presentation" class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+     Atmosphere <span class="caret"></span>
+   </a>
+   <ul class="dropdown-menu">
+  <% @atmospheres.each do |atmosphere| %>
+  <li><%= link_to atmosphere.status, businessprofiles_path(atmosphere_id: atmosphere.id)%></li>
+  <% end %>
+  </ul>
+  </li>
+  <li role="presentation" class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+    Attractions <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+  <% @attractions.each do |attraction| %>
+  <li><%= link_to attraction.name, businessprofiles_path(attraction_id: attraction.id)%></li>
+  <% end %>
+</ul>
+</li>
+</ul>
+
+<% @businessprofile.each do |x| %>
+<%= link_to x.name, x %><br />
+
+    <%= x.bio %></br>
+    <% if user_signed_in? %>
+    Miles from you: <%= x.distance_to(current_user) %> </br>
     <% end %>
 
-  
+<% end %>

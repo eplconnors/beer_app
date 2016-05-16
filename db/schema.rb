@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160514183718) do
+=======
+ActiveRecord::Schema.define(version: 20160515174721) do
+>>>>>>> 59752506224bca884e371d527a3b6e6e2c8592fe
 
   create_table "atmospheres", force: :cascade do |t|
     t.string   "status"
@@ -41,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160514183718) do
     t.float    "latitude"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "ip_address"
   end
 
   add_index "business_users", ["email"], name: "index_business_users_on_email", unique: true

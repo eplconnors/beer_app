@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'join' => 'drinks#join'
   get 'beers/index'
 
+
   get 'search' => 'beers#search'
 
   get 'results' => 'drinks#drinksearch'

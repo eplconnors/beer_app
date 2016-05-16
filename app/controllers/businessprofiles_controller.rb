@@ -1,11 +1,26 @@
 class BusinessprofilesController < ApplicationController
 
   def index
-    @business_profiles = Businessprofile.all
+
+    if params[:attraction_id] == nil && params[:atmosphere_id] == nil
+      @businessprofile = Businessprofile.all
+    elsif params[:attraction_id] != nil
+      @businessprofile = Businessprofile.where(attraction_id: params[:attraction_id])
+    elsif params[:atmosphere_id] != nil
+      @businessprofile = Businessprofile.where(atmosphere_id: params[:atmosphere_id])
+    elsif params[:attraction_id] != nil && params[:atmosphere_id] != nil
+      @businessprofile = Businessprofile.where(attraction_id: params[:attraction_id], atmosphere_id: params[:atmosphere_id])
+    end
+    @attractions = Attraction.all.order(:name).distinct
+    @atmospheres = Atmosphere.all.order(:status).distinct
+
+
   end
 
   def show
     @b_profile = Businessprofile.find(params[:id])
+
+
   end
 
     def new
@@ -54,7 +69,7 @@ class BusinessprofilesController < ApplicationController
  end
 
  def businessprofile_params
-    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id)
+    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id, :name)
     # saves to our database
  end
 end

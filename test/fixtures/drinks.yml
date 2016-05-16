@@ -2,6 +2,13 @@
 
 one:
   name: MyString
+<<<<<<< HEAD
+  businessprofile_id: 
+
+two:
+  name: MyString
+  businessprofile_id: 
+=======
   abv: 9.99
   description: MyText
 
@@ -9,3 +16,4 @@ two:
   name: MyString
   abv: 9.99
   description: MyText
+>>>>>>> c6333fec5ec79e4eff2aeb8a0bdd3e6e4c357ef2
