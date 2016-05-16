@@ -12,21 +12,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
-var map;
-function initMap() {
-  var product = new google.maps.LatLng(latitude, longitude);
-  map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: businessprofile,
+$(document).ready(function (){
+  var map;
+function initialize() {
+  var business = new google.maps.LatLng(latitude, longitude);
+    map = new google.maps.Map(document.getElementById('map-canvas'), {
+    center: business,
     zoom: 15,
     scrollwheel: false,
   });
   var marker = new google.maps.Marker({
-    position: myLatlng,
+    position: business,
     map: map,
     title: title,
     draggable: true
   });
 }
-AIzaSyAICEi9lhFUG7qchnjGmn78ekxTWSJDH1Y
+google.maps.event.addDomListener(window, 'load', initialize);
+});
