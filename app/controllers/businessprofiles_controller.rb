@@ -14,9 +14,16 @@ class BusinessprofilesController < ApplicationController
     @attractions = Attraction.all.order(:name).distinct
     @atmospheres = Atmosphere.all.order(:status).distinct
     
+    if params[:q].blank?
+      @q = Businessprofile.none.ransack
+    else
     @q = Businessprofile.ransack(params[:q])
-    @profiles = @q.result.includes(:taps, :drinks)
   end
+      @profiles = @q.result(distinct: true).includes(:taps, :drinks)
+
+  end
+  
+ 
 
   def show
     @b_profile = Businessprofile.find(params[:id])
