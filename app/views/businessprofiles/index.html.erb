@@ -1,35 +1,12 @@
-<h1>Business Profile Feed</h1>
+<%= search_form_for @q do |f| %>
 
-<ul class="nav nav-tabs">
-  <li role="presentation"> <%= link_to "All", businessprofiles_path %></li>
-  <li role="presentation" class="dropdown">
-   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-     Atmosphere <span class="caret"></span>
-   </a>
-   <ul class="dropdown-menu">
-  <% @atmospheres.each do |atmosphere| %>
-  <li><%= link_to atmosphere.status, businessprofiles_path(atmosphere_id: atmosphere.id)%></li>
-  <% end %>
-  </ul>
-  </li>
-  <li role="presentation" class="dropdown">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-    Attractions <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu">
-  <% @attractions.each do |attraction| %>
-  <li><%= link_to attraction.name, businessprofiles_path(attraction_id: attraction.id)%></li>
-  <% end %>
-</ul>
-</li>
-</ul>
+  # Search if the name field contains...
+  <%= f.label :drinks_name_cont %>
+  <%= f.search_field :drinks_name_cont %>
 
-<% @businessprofile.each do |x| %>
-<%= link_to x.name, x %><br />
-
-    <%= x.bio %></br>
-    <% if user_signed_in? %>
-    Miles from you: <%= x.distance_to(current_user) %> </br>
-    <% end %>
-
+  <%= f.submit %>
 <% end %>
+
+<% @profiles.each do |pro| %>
+<%=pro.name%>
+<%end%>
