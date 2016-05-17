@@ -45,7 +45,7 @@ class BusinessprofilesController < ApplicationController
 
     def create
     @b_profile = Businessprofile.new(businessprofile_params)
-
+  
     respond_to do |format|
       if @b_profile.save
         format.html { redirect_to @b_profile, notice: 'Business Profile information was successfully created.' }
