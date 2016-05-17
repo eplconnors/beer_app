@@ -15,6 +15,7 @@ gem 'geocoder'
 gem 'brewery_db'
 gem 'figaro'
 gem 'google-api-client'
+gem 'ransack'
 
 
 group :development, :test do
