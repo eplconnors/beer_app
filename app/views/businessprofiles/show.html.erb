@@ -1,19 +1,42 @@
-<h1>Business Profile</h1>
- <%= @b_profile.name %><br />
- <%= @b_profile.address %><br />
- <%= @b_profile.bio %><br />
- <%= @b_profile.phone_number %><br />
- <% @b_profile.taps.each do |tap| %><br />
-  <%= tap.drink.name  %>
-  <% end %>
+<div class="page-header">
+  <h1><%= @b_profile.name %></h1>
+</div>
 
- <% if user_signed_in? %>
-  Miles from you: <%= @b_profile.distance_to(current_user)  %>
-  <% end %>
+<% if user_signed_in? %>
+ <h5>We are <%= @b_profile.distance_to(current_user) %> from you </h5>
+ <% end %>
 
+ <div class="row">
+   <div class="col-xs-6 col-md-3">
+     <a href="#" class="thumbnail">
+       <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %><br />
+       <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %><br />
+     </a>
+   </div>
+ </div>
 
+   <div class="row">
+     <div class="col-xs-8 col-md-4">
+       <h4> About Us</h4>
+       <%= @b_profile.bio %><br />
+    </div>
+  </div>
 
-<div id="map-canvas"></div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h3> What we're slinging right now:</h3>
+      <div class= "border">
+      <% @b_profile.taps.each do |tap| %><br />
+       <%= tap.drink.name  %>
+       <% end %>
+       </div>
+   </div>
+
+   <div class="col-xs-12 col-md-6">
+     <div id="map-canvas"></div>
+   </div>
+
+  </div>
 
 <%= javascript_tag do %>
   latitude = '<%= j @b_profile.latitude.to_s %>';
