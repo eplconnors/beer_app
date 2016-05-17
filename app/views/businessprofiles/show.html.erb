@@ -3,7 +3,7 @@
 </div>
 
 <% if user_signed_in? %>
- <h5>We are <%= @b_profile.distance_to(current_user).round(1) %> from you </h5>
+ <h5>We are <%= @b_profile.distance_to(current_user).round(1) %> miles from you </h5>
  <% end %>
 
  <div class="row">
