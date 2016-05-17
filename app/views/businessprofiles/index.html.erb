@@ -18,10 +18,30 @@
   <% @attractions.each do |attraction| %>
   <li><%= link_to attraction.name, businessprofiles_path(attraction_id: attraction.id)%></li>
   <% end %>
-</ul>
-</li>
+  </ul>
+  </li>
+  
+<div class="pull-right"><%= search_form_for @q do |f| %>
+
+<ul><b>Search Profiles for Beer </b><%= f.search_field :drinks_name_cont, placeholder: "Search Beers" %>
+<%= f.submit %></ul>
+
+      <% end %>
+      
+<%= button_tag type: 'button' do %>
+<% link_to 'Clear', businessprofiles_path %>
+<% end %>
+
+</div>
 </ul>
 
+<div class="pull-right"><b>Search results...</b><br />
+
+
+<% @profiles.each do |pro| %>
+<%= link_to pro.name, pro %><br /><br />
+<%end%>
+</div>
 
 <% @businessprofile.each do |x| %>
 <%= link_to x.name, x %><br />
@@ -30,18 +50,11 @@
     <% if user_signed_in? %>
     Miles from you: <%= x.distance_to(current_user).round(1) %> </br>
     <% end %>
+    <br />
 
 <% end %>
 
-<br />
-<%= search_form_for @q do |f| %>
 
-  <%= f.label :drinks_name_cont %>
-  <%= f.search_field :drinks_name_cont %>
 
-  <%= f.submit %>
-<% end %>
 
-<% @profiles.each do |pro| %>
-<%= link_to pro.name, pro %><br />
-<%end%>
+
