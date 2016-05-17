@@ -29,7 +29,7 @@
 
     <%= x.bio %></br>
     <% if user_signed_in? %>
-    Miles from you: <%= x.distance_to(current_user) %> </br>
+    Miles from you: <%= x.distance_to(current_user).round(1) %> </br>
     <% end %>
 
 <% end %>
