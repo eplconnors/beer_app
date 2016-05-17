@@ -11,8 +11,7 @@
     </div>
   <% end %>
 
-<form>
-
+<form class="form-horizontal">
  <div class="form-group">
     <%= f.text_field :name, class: "form-control", placeholder: "Business Name" %>
   </div>
@@ -22,24 +21,25 @@
   </div>
 
   <div class="form-group">
-    <%= f.text_field :address, class: "form-control",
-    placeholder: "Number & Street Name City, State, Zip Code" %>
+    <%= f.text_field :address, class: "form-control", placeholder: "123 Main Street, City State Zip" %>
   </div>
 
-<div class="form-group">
-   <%= f.label :bio %><br>
-  <%= f.text_area :bio, class: "form-control", :rows => 10 %>
+  <div class="form-group">
+  <%= f.text_area :bio, class: "form-control", :rows => 10, placeholder: "Tell the world about your brewery!" %>
   </div>
+
+  <div class="form-group">
    <%= f.label "Atmosphere" %>
-    <%= f.collection_select(:atmosphere_id, Atmosphere.all, :id, :status) %><br />
+   <%= f.collection_select(:atmosphere_id, Atmosphere.all, :id, :status) %><br />
 
     <%= f.label "Attraction" %>
     <%= f.collection_select(:attraction_id, Attraction.all, :id, :name) %><br />
 
-  <div class="field">
+  <div class="cant-see-me">
     <%= f.label :business_user_id %><br>
     <%= f.text_field :business_user_id, value: current_business_user.id %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
