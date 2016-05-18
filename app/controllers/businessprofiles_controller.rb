@@ -13,21 +13,19 @@ class BusinessprofilesController < ApplicationController
     end
     @attractions = Attraction.all.order(:name).distinct
     @atmospheres = Atmosphere.all.order(:status).distinct
-    
     if params[:q].blank?
       @q = Businessprofile.none.ransack
     else
-    @q = Businessprofile.ransack(params[:q])
+      @q = Businessprofile.ransack(params[:q])
   end
       @profiles = @q.result(distinct: true).includes(:taps, :drinks)
+end
 
-  end
-  
  
 
   def show
     @b_profile = Businessprofile.find(params[:id])
-    
+
   end
 
     def new
@@ -52,7 +50,7 @@ class BusinessprofilesController < ApplicationController
 
     def create
     @b_profile = Businessprofile.new(businessprofile_params)
-  
+
     respond_to do |format|
       if @b_profile.save
         format.html { redirect_to new_drink_path, notice: 'Business Profile information was successfully created.' }
