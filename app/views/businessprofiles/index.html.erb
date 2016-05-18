@@ -39,8 +39,8 @@
   </div>
 
 <div class="panel-body">
-  <%= image_tag @businessprofile.avatar.url(:thumb), class: "img-responsive" %>
-    <p><%= x.motto %></p>
+<%= image_tag x.avatar.url(:thumb), class: "img-responsive" %>
+   <p><%= x.motto %></p>
 <% if user_signed_in? %>
     <p>Miles from you: <%= x.distance_to(current_user).round(1) %></p>
 <% end %>
