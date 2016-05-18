@@ -1,7 +1,6 @@
 class BusinessprofilesController < ApplicationController
 
   def index
-
     if params[:attraction_id] == nil && params[:atmosphere_id] == nil
       @businessprofile = Businessprofile.near([current_user.latitude, current_user.longitude], 100)
     elsif params[:attraction_id] != nil
