@@ -1,49 +1,53 @@
 <div class = "container">
 <div class="page-header">
-  <h1><%= @b_profile.name %></h1>
 
+  <h1><center>Welcome to <%= @b_profile.name %></center></h1>
+<% if current_business_user.id == @b_profile.business_user.id %>
   <%= link_to "Edit Profile", edit_businessprofile_path %>
-
+<% end %>
 </div>
 
 <% if user_signed_in? %>
- <h5>We are <%= @b_profile.distance_to(current_user).round(1) %> miles from you </h5>
+ <h3>We are <%= @b_profile.distance_to(current_user).round(1) %> miles from you </h3>
  <% end %>
 
  <div class="row">
    <div class="col-xs-6 col-md-6">
-     <a href="#" class="thumbnail">
-       <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %><br />
-       <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %><br />
-     </a>
-   </div>
-     <div class="col-xs-6 col-md-6">
-       <div id="map-canvas"></div>
-     </div>
- </div>
-
-   <div class="row">
-     <div class="col-xs-8 col-md-4">
-       <h4> About Us</h4>
-       <%= @b_profile.bio %><br />
-      <%= @b_profile.motto %><br />
-    </div>
+     <h3> About Us: </h3>
+     <%= @b_profile.bio %><br />
+    <%= @b_profile.motto %><br />
   </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <h3> What we're slinging right now:</h3>
-      <div class= "border">
-      <% @b_profile.taps.each do |tap| %><br />
-       <%= tap.drink.name  %>
-       <% end %>
-       </div>
-   </div>
-    <div class="col-xs-6 col-md-6">
+  <div class="col-xs-6 col-md-6">
+    <a href="#" class="thumbnail">
+      <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %></h4><br />
+      <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %></h4><br />
+    </a>
+
+ </div>
+ </div>
+
+ <div class="row">
+   <div class="col-xs-6 col-md-6">
+     <div class="thumbnail">
+     <center><h3> What we're slinging right now:</h3></center>
+     <% @b_profile.taps.each do |tap| %><br />
+      <%= tap.drink.name  %>
+      <% end %>
+    </div>
+    </div>
+
+      <div class="col-xs-6 col-md-6">
+        <div id="map-canvas"></div>
+      </div>
+  </div>
+
+
+    <div class="col-xs-12 col-md-12">
       <div id='calendar'></div>
     </div>
 
-</div>
+
 
 
 <%= javascript_tag do %>
