@@ -3,6 +3,7 @@
 
   <h1><%= @b_profile.name %></h1>
 <% if  business_user_signed_in? && current_business_user.id == @b_profile.business_user.id%>
+
   <%= link_to "Edit Profile", edit_businessprofile_path %>
 <% end %>
 
