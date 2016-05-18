@@ -34,7 +34,11 @@
      <div class="thumbnail">
      <center><h3> What we're slinging right now:</h3></center>
      <% @b_profile.taps.each do |tap| %><br />
-      <%= tap.drink.name  %>
+     <ul>
+       <li>
+     <%= tap.drink.name  %>
+   </li>
+ </ul>
       <% end %>
     </div>
     </div>
@@ -43,7 +47,6 @@
         <div id="map-canvas"></div>
       </div>
   </div>
-
 
     <div class="col-xs-12 col-md-12">
       <div id='calendar'></div>
