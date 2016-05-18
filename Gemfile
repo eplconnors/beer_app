@@ -14,8 +14,9 @@ gem 'paperclip'
 gem 'geocoder'
 gem 'brewery_db'
 gem 'figaro'
-gem 'google-api-client'
 gem 'ransack'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 
 group :development, :test do

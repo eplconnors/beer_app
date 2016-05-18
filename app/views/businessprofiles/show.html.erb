@@ -11,12 +11,15 @@
  <% end %>
 
  <div class="row">
-   <div class="col-xs-6 col-md-3">
+   <div class="col-xs-6 col-md-6">
      <a href="#" class="thumbnail">
        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %><br />
        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %><br />
      </a>
    </div>
+     <div class="col-xs-6 col-md-6">
+       <div id="map-canvas"></div>
+     </div>
  </div>
 
    <div class="row">
@@ -36,12 +39,12 @@
        <% end %>
        </div>
    </div>
+    <div class="col-xs-6 col-md-6">
+      <div id='calendar'></div>
+    </div>
 
-   <div class="col-xs-12 col-md-6">
-     <div id="map-canvas"></div>
-   </div>
+</div>
 
-  </div>
 
 <%= javascript_tag do %>
   latitude = '<%= j @b_profile.latitude.to_s %>';
@@ -50,4 +53,3 @@
   title = '<%= j @b_profile.name %>';
 <% end %>
 </div>
-

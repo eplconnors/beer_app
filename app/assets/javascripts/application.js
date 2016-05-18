@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require moment
+//= require fullcalendar
 $(document).ready(function (){
   var map;
 function initialize() {
@@ -31,3 +33,29 @@ function initialize() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 });
+
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+      header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay',
+		},
+    DefaultDate: '2016-05-12',
+		editable: true,
+		eventLimit: true, // allow "more" link when too many events
+		events: [
+			{
+				title: 'All Day Event',
+				start: '2016-05-01'
+			},
+      {
+				title: 'Lunch',
+				start: '2016-05-12T12:00:00'
+			},
+    ]
+	})
+})
