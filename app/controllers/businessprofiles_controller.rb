@@ -55,7 +55,7 @@ class BusinessprofilesController < ApplicationController
   
     respond_to do |format|
       if @b_profile.save
-        format.html { redirect_to @b_profile, notice: 'Business Profile information was successfully created.' }
+        format.html { redirect_to new_drink_path, notice: 'Business Profile information was successfully created.' }
       else
         format.html { render :new }
       end
@@ -76,7 +76,7 @@ class BusinessprofilesController < ApplicationController
  end
 
  def businessprofile_params
-    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id, :name)
+    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id, :name, :motto)
     # saves to our database
  end
 end
