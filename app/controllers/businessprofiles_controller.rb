@@ -21,11 +21,11 @@ class BusinessprofilesController < ApplicationController
       @profiles = @q.result(distinct: true).includes(:taps, :drinks)
 end
 
- 
+
 
   def show
     @b_profile = Businessprofile.find(params[:id])
-
+    @beer = @b_profile.taps.map{|tap| tap.drink.name}.uniq!
   end
 
     def new
