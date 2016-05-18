@@ -1,4 +1,3 @@
-<div class="container">
 <table class="table table-hover">
 <thead>
   <tr>
@@ -32,9 +31,10 @@
 
   <td>
     <%= button_to "Select Beer", drinks_path(name: b.name, abv: b.abv, description: b.description) %>
+
+    <% end %>
   </td>
   </tr>
   <% end %>
   </tbody>
 </table>
-</div>

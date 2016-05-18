@@ -1,28 +1,32 @@
 <div class = "container">
 <div class="page-header">
-<<<<<<< HEAD
+
   <h1><center>Welcome to <%= @b_profile.name %></center></h1>
-=======
-  <h1><%= @b_profile.name %></h1>
-
   <%= link_to "Edit Profile", edit_businessprofile_path %>
-
->>>>>>> 91245499f9d7ef573d0990138c679fa2e8b7d968
 </div>
 
 <% if user_signed_in? %>
  <h5>We are <%= @b_profile.distance_to(current_user).round(1) %> miles from you </h5>
  <% end %>
 
+
  <center><div class="row">
    <div class="col-xs-6 col-md-3">
+
      <a href="#" class="thumbnail">
        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %><br />
        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %><br />
      </a>
    </div>
+
  </div></center>
 
+
+
+     <div class="col-xs-6 col-md-6">
+       <div id="map-canvas"></div>
+     </div>
+ </div>
 
 
    <div class="row">
@@ -43,12 +47,12 @@
        <% end %>
        </div>
    </div>
+    <div class="col-xs-6 col-md-6">
+      <div id='calendar'></div>
+    </div>
 
-   <div class="col-xs-12 col-md-6">
-     <div id="map-canvas"></div>
-   </div>
+</div>
 
-  </div>
 
 <%= javascript_tag do %>
   latitude = '<%= j @b_profile.latitude.to_s %>';
@@ -56,8 +60,4 @@
   address = '<%= j @b_profile.address %>';
   title = '<%= j @b_profile.name %>';
 <% end %>
-<<<<<<< HEAD
-=======
 </div>
-
->>>>>>> 91245499f9d7ef573d0990138c679fa2e8b7d968
