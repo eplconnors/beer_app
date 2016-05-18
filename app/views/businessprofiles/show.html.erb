@@ -1,27 +1,29 @@
 <div class="page-header">
-  <h1><%= @b_profile.name %></h1>
+  <h1><center>Welcome to <%= @b_profile.name %></center></h1>
 </div>
 
 <% if user_signed_in? %>
  <h5>We are <%= @b_profile.distance_to(current_user).round(1) %> miles from you </h5>
  <% end %>
 
- <div class="row">
+ <center><div class="row">
    <div class="col-xs-6 col-md-3">
      <a href="#" class="thumbnail">
        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %><br />
        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %><br />
      </a>
    </div>
- </div>
+ </div></center>
+
 
 
    <div class="row">
      <div class="col-xs-8 col-md-4">
-       <h4> About Us</h4>
+       <h3> About Us: </h3>
        <%= @b_profile.bio %><br />
     </div>
   </div>
+
 
   <div class="row">
     <div class="col-xs-12 col-md-6">
