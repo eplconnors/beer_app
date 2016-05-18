@@ -74,6 +74,13 @@ ActiveRecord::Schema.define(version: 20160517210444) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
   create_table "taps", force: :cascade do |t|
     t.integer  "drink_id"
     t.integer  "businessprofile_id"

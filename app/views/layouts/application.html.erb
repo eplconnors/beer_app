@@ -5,8 +5,12 @@
   <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Karla:400,400italic|Raleway" %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'fullcalendar/fullcalendar.css' %>
   <%= javascript_include_tag 'application'%>
   <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" %>
+  <%= javascript_include_tag 'lib/jquery.min.js' %>
+  <%= javascript_include_tag 'lib/moment.min.js' %>
+  <%= javascript_include_tag 'fullcalendar/fullcalendar.js'%>
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_api_key']%>"></script>
 
