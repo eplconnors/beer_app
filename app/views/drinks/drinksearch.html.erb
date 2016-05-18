@@ -31,7 +31,7 @@
   </td>
 
   <td>
-    <%= button_to "Select Beer", drinks_path(name: b.name, abv: b.abv, description: b.description) %>
+    <%= button_to "Select Beer", drinks_path(name: b.name, abv: b.abv, description: b.description, biz: current_business_user.businessprofile.id) %>
   </td>
   </tr>
   <% end %>

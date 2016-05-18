@@ -32,16 +32,34 @@
          <%= link_to "Home", root_path, class:"navbar-brand" %>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <% if user_signed_in? %>
         <ul class="nav navbar-nav">
-          <% if user_signed_in? %>
             <li><%= link_to "See All Business Profiles", businessprofiles_path %></li>
-            <li><%= link_to "Search All Beers", beers_index_path %></li>
+         
+</ul>
+<div class="navbar-form navbar-left">
+              <div class= "form-group">
+<%= form_tag(search_path, method: :get) do %>
+  <%= text_field_tag(:q, nil, class: "form-control") %>
+  <%= submit_tag "Learn About Beers" %>
+<% end %>
+</div>
+</div>
+          <% else business_user_signed_in?%>       
+          <ul class="nav navbar-nav">
 
-          <% else business_user_signed_in?%>
+          
             <li><%= link_to "Your Business Profile", businessprofile_path(id: current_business_user.id) %></li>
-            <li><%= link_to "Add Beers to Profile", new_drink_path %></li>
-           <% end %>
         </ul>
+         <div class="navbar-form navbar-left">
+              <div class= "form-group">
+              <%= form_tag(results_path, method: :get) do %>
+              <%= text_field_tag(:q, nil, placeholder: "Add Beer To Profile", class: "form-control") %>
+              <%= submit_tag "Search" %>
+              <% end %>
+              </div>
+              </div>
+                         <% end %>
 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
