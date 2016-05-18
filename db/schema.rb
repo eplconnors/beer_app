@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515174721) do
+ActiveRecord::Schema.define(version: 20160517210444) do
 
   create_table "atmospheres", force: :cascade do |t|
     t.string   "status"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160515174721) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "name"
+    t.string   "motto"
   end
 
   add_index "businessprofiles", ["atmosphere_id"], name: "index_businessprofiles_on_atmosphere_id"

@@ -1,9 +1,13 @@
+<div class = "container">
 <div class="page-header">
   <h1><%= @b_profile.name %></h1>
+
+  <%= link_to "Edit Profile", edit_businessprofile_path %>
+
 </div>
 
 <% if user_signed_in? %>
- <h5>We are <%= @b_profile.distance_to(current_user).round(1) %> from you </h5>
+ <h5>We are <%= @b_profile.distance_to(current_user).round(1) %> miles from you </h5>
  <% end %>
 
  <div class="row">
@@ -19,6 +23,7 @@
      <div class="col-xs-8 col-md-4">
        <h4> About Us</h4>
        <%= @b_profile.bio %><br />
+      <%= @b_profile.motto %><br />
     </div>
   </div>
 
@@ -44,4 +49,5 @@
   address = '<%= j @b_profile.address %>';
   title = '<%= j @b_profile.name %>';
 <% end %>
+</div>
 
