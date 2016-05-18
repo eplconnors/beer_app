@@ -21,7 +21,7 @@ class BusinessprofilesController < ApplicationController
       @profiles = @q.result(distinct: true).includes(:taps, :drinks)
 end
 
- 
+
 
   def show
     @b_profile = Businessprofile.find(params[:id])
@@ -74,7 +74,7 @@ end
  end
 
  def businessprofile_params
-    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id, :name, :motto)
+    params.require(:businessprofile).permit(:phone_number, :business_user_id, :bio, :address, :attraction_id, :atmosphere_id, :name, :motto, :avatar)
     # saves to our database
  end
 end

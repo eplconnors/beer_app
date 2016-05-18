@@ -1,13 +1,9 @@
 <div class = "container">
 <div class="page-header">
-<<<<<<< HEAD
+
   <h1><%= @b_profile.name %></h1>
 <% if  business_user_signed_in? && current_business_user.id == @b_profile.business_user.id%>
-=======
 
-  <h1><center>Welcome to <%= @b_profile.name %></center></h1>
-<% if current_business_user.id == @b_profile.business_user.id %>
->>>>>>> fd093c84b6e48ba0c8ae34fb619104df5d3a4876
   <%= link_to "Edit Profile", edit_businessprofile_path %>
 <% end %>
 
@@ -26,8 +22,9 @@
 
   <div class="col-xs-6 col-md-6">
     <a href="#" class="thumbnail">
-    <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %></h4><br />
-      <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %></h4><br />
+      <right><%= image_tag @b_profile.avatar.url(:medium), class: "img-responsive" %></right>
+      <right><h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @b_profile.address %></h4>
+      <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @b_profile.phone_number %></h4></right>
     </a>
 
  </div>
