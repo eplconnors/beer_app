@@ -1,5 +1,13 @@
+<div class = "container">
 <div class="page-header">
+<<<<<<< HEAD
   <h1><center>Welcome to <%= @b_profile.name %></center></h1>
+=======
+  <h1><%= @b_profile.name %></h1>
+
+  <%= link_to "Edit Profile", edit_businessprofile_path %>
+
+>>>>>>> 91245499f9d7ef573d0990138c679fa2e8b7d968
 </div>
 
 <% if user_signed_in? %>
@@ -21,6 +29,7 @@
      <div class="col-xs-8 col-md-4">
        <h3> About Us: </h3>
        <%= @b_profile.bio %><br />
+      <%= @b_profile.motto %><br />
     </div>
   </div>
 
@@ -47,3 +56,8 @@
   address = '<%= j @b_profile.address %>';
   title = '<%= j @b_profile.name %>';
 <% end %>
+<<<<<<< HEAD
+=======
+</div>
+
+>>>>>>> 91245499f9d7ef573d0990138c679fa2e8b7d968

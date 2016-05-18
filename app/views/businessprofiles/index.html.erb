@@ -1,3 +1,6 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-1">
 <ul class="nav nav-tabs">
   <li role="presentation"> <%= link_to "All", businessprofiles_path %></li>
   <li role="presentation" class="dropdown">
@@ -20,39 +23,59 @@
   <% end %>
   </ul>
   </li>
-  
-<div class="pull-right"><%= search_form_for @q do |f| %>
+  </ul>
+  </div>
 
-<ul><b>Search Profiles for Beer </b><%= f.search_field :drinks_name_cont, placeholder: "Search Beers" %>
-<%= f.submit %></ul>
+
+  <div class="col-md-9">
+  <div class="head">  
+  <h1><b><center>Business Feed</center></b></h1>
+  </div>
+  
+  <div class="panel panel-success">
+    <% @businessprofile.each do |x| %>
+  <div class="panel-heading">
+    <h4><%= link_to x.name, x %></h4>
+  </div>
+
+<div class="panel-body">
+    <p><%= x.motto %></p>
+<% if user_signed_in? %>
+    <p>Miles from you: <%= x.distance_to(current_user).round(1) %></p>
+<% end %>
+</div>
+<% end %>
+</div>
+  
+
+  <div class="col-md-2">
+  <%= search_form_for @q do |f| %>
+
+<h2><b>Search Profiles for Beer </b></h2><br />
+<%= f.search_field :drinks_name_cont, placeholder: "Search Beers" %>
+<%= f.submit %>
 
       <% end %>
       
 <%= button_tag type: 'button' do %>
 <% link_to 'Clear', businessprofiles_path %>
 <% end %>
-
-</div>
-</ul>
-
-<div class="pull-right"><b>Search results...</b><br />
+<br />
 
 
+<h3><b>Search results...</b></h3><br />
+
+<div class="search">
+  <ol>
 <% @profiles.each do |pro| %>
-<%= link_to pro.name, pro %><br /><br />
+<li><%= link_to pro.name, pro %></li><br />
 <%end%>
+</ol>
+</div>
+</div>
+</div>
 </div>
 
-<% @businessprofile.each do |x| %>
-<%= link_to x.name, x %><br />
-
-    <%= x.bio %></br>
-    <% if user_signed_in? %>
-    Miles from you: <%= x.distance_to(current_user).round(1) %> </br>
-    <% end %>
-    <br />
-
-<% end %>
 
 
 
