@@ -29,12 +29,12 @@
 
  <div class="row">
    <div class="col-xs-6 col-md-6">
-     <a href="#" class="thumbnail">
+     <div class="thumbnail">
      <center><h3> What we're slinging right now:</h3></center>
      <% @b_profile.taps.each do |tap| %><br />
       <%= tap.drink.name  %>
       <% end %>
-    </a>
+    </div>
     </div>
 
       <div class="col-xs-6 col-md-6">
