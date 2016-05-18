@@ -8,14 +8,6 @@
   <%= submit_tag "Search Inventory" %>
 <% end %>
 
-<h3>Select the drink you are serving at your bar.</h3>
-
-<% @drink.each do |dr| %>
-
-<%= dr.name %>
-    <%= button_to "Select Beer", join_path(drink: dr.id, biz: current_business_user.businessprofile.id) %>
-<%end %>
-
 
 <%= link_to "Done", businessprofile_path(current_business_user.businessprofile.id) %>
 </div>
