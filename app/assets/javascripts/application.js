@@ -49,13 +49,24 @@ $(document).ready(function() {
 		eventLimit: true, // allow "more" link when too many events
 		events: [
 			{
-				title: 'All Day Event',
-				start: '2016-05-01'
+				title: 'Cornhole Tournament',
+				start: '2016-05-25'
 			},
       {
-				title: 'Lunch',
-				start: '2016-05-12T12:00:00'
+				title: 'Taco Truck',
+				start: '2016-05-26T19:00:00'
 			},
-    ]
+    ],
+    editable: true,
+    eventDrop: function(event, delta, revertFunc) {
+
+        alert(event.title + " was dropped on " + event.start.format());
+
+        if (!confirm("Are you sure about this change?")) {
+            revertFunc();
+        }
+
+    }
 	})
+
 })

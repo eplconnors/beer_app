@@ -24,7 +24,8 @@ end
 
   def show
     @b_profile = Businessprofile.find(params[:id])
-    @beer = @b_profile.taps.map{|tap| tap.drink.name}.uniq!
+    @beer = @b_profile.taps.map{|tap| tap.drink.name}
+    @beer.uniq!
   end
 
     def new
