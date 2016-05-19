@@ -29,14 +29,17 @@
 
   <div class="col-md-9">
   <div class="head">
-  <h1><b><center>Business Feed</center></b></h1>
+  <h1><b><center>Local Taps</center></b></h1>
   </div>
+
+<div class="row">
+  <div class="col-sm-12, col-md-4">
 
   <div class="panel panel-success">
     <% @businessprofile.each do |x| %>
   <div class="panel-heading">
     <h4><%= link_to x.name, x %></h4>
-  </div>
+
 
 <div class="panel-body">
 
@@ -49,12 +52,13 @@
 </div>
 <% end %>
 </div>
-
-
+</div>
+</div>
+</div>
   <div class="col-md-2">
   <%= search_form_for @q do |f| %>
 
-<h2><b>Search Profiles for Beer </b></h2><br />
+<h3><b>Where is your favorite beer is being served? </b></h3><br />
 <%= f.search_field :drinks_name_cont, placeholder: "Search Beers" %>
 <%= f.submit %>
 
