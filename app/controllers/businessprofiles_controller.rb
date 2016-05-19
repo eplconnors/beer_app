@@ -53,7 +53,7 @@ end
 
     respond_to do |format|
       if @b_profile.save
-        format.html { redirect_to new_drink_path, notice: 'Business Profile information was successfully created.' }
+        format.html { redirect_to @b_profile, notice: 'Business Profile information was successfully created.' }
       else
         format.html { render :new }
       end
