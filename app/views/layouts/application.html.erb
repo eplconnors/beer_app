@@ -5,8 +5,8 @@
   <title>BeerApp</title>
   <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Karla:400,400italic|Raleway" %>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= stylesheet_link_tag 'fullcalendar/fullcalendar.css' %>
+  <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application'%>
   <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" %>
   <%= javascript_include_tag 'lib/jquery.min.js' %>
@@ -36,7 +36,7 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-nav">
             <li><%= link_to "See All Business Profiles", businessprofiles_path %></li>
-         
+
 </ul>
 <div class="navbar-form navbar-left">
               <div class= "form-group">
@@ -46,10 +46,10 @@
 <% end %>
 </div>
 </div>
-          <% else business_user_signed_in?%>       
+          <% else business_user_signed_in?%>
           <ul class="nav navbar-nav">
 
-          
+
             <li><%= link_to "Your Business Profile", businessprofile_path(id: current_business_user.id) %></li>
         </ul>
          <div class="navbar-form navbar-left">

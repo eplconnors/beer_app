@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require moment
 //= require fullcalendar
+//= require_tree .
+
 $(document).ready(function (){
   var map;
 function initialize() {
